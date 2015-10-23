@@ -1,7 +1,3 @@
-Meteor.startup(function () {
-  // code to run on server at startup
-});
-
 Meteor.methods({
   insertItem: function(body) {
     check(body, String);
