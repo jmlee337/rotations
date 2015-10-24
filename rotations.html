@@ -6,23 +6,68 @@
 </head>
 
 <body>
-  {{> loginButtons}}
-  {{> allItems}}
+  <div class="container">
+    <div class="loginBar">
+      {{> loginButtons align="right"}}
+    </div>
+    {{> itemsView}}
+  </div>
 </body>
+
+<template name="itemsView">
+  {{> itemsSelector}}
+  {{#if showAll}}
+    {{> allItems}}
+  {{else}}
+    {{> currentItems}}
+  {{/if}}
+</template>
+
+<template name="itemsSelector">
+  <div class="itemsSelector">
+    <div class="itemButton current {{#if showAll}}itemButtonDisabled{{else}}itemButtonEnabled{{/if}}">
+      Current
+    </div>
+    <div class="itemButton all {{#if showAll}}itemButtonEnabled{{else}}itemButtonDisabled{{/if}}">
+      All
+    </div>
+  </div>
+</template>
 
 <template name="allItems">
   {{#each items}}
-    <div class="mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title">{{title}}</div>
-      <div class="mdl-card__supporting-text">{{body}}</div>
-      <div class="mdl-card__menu">
-        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-          <i class="material-icons">create</i>
-        </button>
-        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-          <i class="material-icons">delete</i>
-        </button>
-      </div>
+    <div class="card">
+      <div class="headline">{{title}}</div>
+      <div class="text">{{body}}</div>
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">create</i>
+      </button>
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">delete</i>
+      </button>
     </div>
   {{/each}}
+</template>
+
+<template name="currentItems">
+  {{#each items}}
+    <div class="card">
+      <div class="headline">{{title}}</div>
+      <div class="text">{{body}}</div>
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">create</i>
+      </button>
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">delete</i>
+      </button>
+    </div>
+  {{/each}}
+</template>
+
+<template name="addButton">
+  <div class="fab">
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">add</i>
+    </button>
+  </div>
 </template>

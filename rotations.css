@@ -1,0 +1,59 @@
+body {
+  background-color: #eeeeee;
+}
+
+.container {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.loginBar {
+  text-align: right;
+}
+
+.itemsSelector {
+  margin: 8px 8px 0;
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+}
+
+.itemButton {
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.itemButtonDisabled {
+  border-bottom: 2px solid #fff;
+}
+
+.itemButtonEnabled {
+  border-bottom: 2px solid #000;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 1.0);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  margin: 8px 8px 0;
+  padding: 16px;
+}
+
+.headline {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.text {
+  font-size: 14px;
+  letter-spacing: .01em;
+  line-height: 20px;
+}
