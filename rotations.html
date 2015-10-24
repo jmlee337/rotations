@@ -1,7 +1,28 @@
 <head>
-  <title>rotations</title>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <link rel="sytlesheet" href="rotations.css" type="text/css">
+  <title>Rotations</title>
 </head>
 
 <body>
   {{> loginButtons}}
+  {{> allItems}}
 </body>
+
+<template name="allItems">
+  {{#each items}}
+    <div class="mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">{{title}}</div>
+      <div class="mdl-card__supporting-text">{{body}}</div>
+      <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">create</i>
+        </button>
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">delete</i>
+        </button>
+      </div>
+    </div>
+  {{/each}}
+</template>
