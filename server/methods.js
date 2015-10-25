@@ -42,8 +42,14 @@ Meteor.methods({
 
   initializePreferences: function() {
     var userId = getUserId();
+
+    var nowDate = new Date(Date.now());
+    nowDate.setDate(nowDate.getDate() - nowDate.getDay());
+    nowDate.setHours(0, 0, 0 ,0);
+
     return Preferences.insert({
       userId: userId,
+      originMs: nowDate.getTime(),
       dayLength: DEFAULT_DAY_LENGTH,
       weekLength: DEFAULT_WEEK_LENGTH
     });
