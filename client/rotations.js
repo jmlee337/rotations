@@ -1,6 +1,13 @@
 Meteor.subscribe("items");
 Meteor.subscribe("preferences");
 
+Accounts.onLogin(function() {
+  var preferences = Preferences.findOne();
+  if (!preferences) {
+    Meteor.call("initializePreferences");
+  }
+});
+
 Template.itemsView.helpers({
   showAll: function() {
     return Session.get("showAll");
@@ -32,6 +39,9 @@ Template.allItems.helpers({
 Template.currentItems.helpers({
   items: function() {
     var preferences = Preferences.findOne();
+    if (!preferences) {
+      return;
+    }
 
     var nowDiffMs = Date.now() - preferences.originMs;
     var nowDiffDays = Math.floor(nowDiffMs / 1000 / 60 / 60 / preferences.dayLength);
