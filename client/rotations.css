@@ -1,5 +1,9 @@
+html, body {
+  height: 100%;
+}
+
 body {
-  background-color: #eeeeee;
+  background-color: #f8f8f8;
 }
 
 .container {
@@ -8,6 +12,7 @@ body {
   flex-direction: column;
   max-width: 800px;
   margin: 0 auto;
+  min-height: 100%;
 }
 
 .loginBar {
@@ -19,6 +24,7 @@ body {
   display: flex;
   flex-direction: row;
   height: 48px;
+  min-height: 48px;
 }
 
 .itemButton {
@@ -56,4 +62,30 @@ body {
   font-size: 14px;
   letter-spacing: .01em;
   line-height: 20px;
+}
+
+.space8 {
+  padding-top: 8px;
+}
+
+.fabContainer {
+  position: fixed;
+}
+
+@media (max-width: 799px) {
+  .fabContainer {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+@media (min-width: 801px) {
+  .fabContainer {
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+.fab {
+  background-color: #c8c8c8;
 }

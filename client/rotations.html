@@ -21,6 +21,12 @@
   {{else}}
     {{> currentItems}}
   {{/if}}
+  <div class="space8"></div>
+  <div class="fabContainer">
+    <button class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+      <i class="material-icons">add</i>
+    </button>
+  </div>
 </template>
 
 <template name="itemsSelector">
@@ -62,12 +68,4 @@
       </button>
     </div>
   {{/each}}
-</template>
-
-<template name="addButton">
-  <div class="fab">
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-      <i class="material-icons">add</i>
-    </button>
-  </div>
 </template>
