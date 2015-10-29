@@ -6,6 +6,11 @@ body {
   background-color: #f8f8f8;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   background-color: #ffffff;
   display: flex;
@@ -19,12 +24,19 @@ body {
   text-align: right;
 }
 
-.itemsSelector {
+.topBar {
   margin: 8px 8px 0;
   display: flex;
   flex-direction: row;
   height: 48px;
   min-height: 48px;
+}
+
+.topBarButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 48px;
 }
 
 .itemButton {
@@ -37,12 +49,25 @@ body {
   cursor: pointer;
 }
 
+.itemLabel {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: uppercase;
+}
+
 .itemButtonDisabled {
   border-bottom: 2px solid #fff;
 }
 
 .itemButtonEnabled {
   border-bottom: 2px solid #000;
+}
+
+.textInput {
+  margin: 0 8px 0;
+  width: initial;
 }
 
 .card {

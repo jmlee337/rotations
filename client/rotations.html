@@ -10,9 +10,42 @@
     <div class="loginBar">
       {{> loginButtons align="right"}}
     </div>
-    {{> itemsView}}
+      {{#if view}}
+    {{> Template.dynamic template=view}}
+    {{else}}
+      {{> itemsView}}
+    {{/if}}
   </div>
 </body>
+
+<template name="addView">
+  <div class="topBar">
+    <div class="topBarButton">
+      <button class="back mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">arrow_back</i>
+      </button>
+    </div>
+    <div class="itemLabel">
+      Create
+    </div>
+  </div>
+  <form id="theOnlyForm">
+    <div class="textInput mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" type="text" id="newTitle" name="newTitle"/>
+      <label class="mdl-textfield__label" for="newTitle"><strong>Title...</strong></label>
+    </div>
+    <div class="textInput mdl-textfield mdl-js-textfield">
+      <textarea class="mdl-textfield__input" type="text" rows="10" id="newBody" name="newBody"></textarea>
+      <label class="mdl-textfield__label" for="newBody">Body...</label>
+    </div>
+    <div class="textInput">
+      <button type="submit" class="save mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+        Save
+      </button>
+    </div>
+  </form>
+  <div class="space8"></div>
+</template>
 
 <template name="itemsView">
   {{> itemsSelector}}
@@ -30,11 +63,11 @@
 </template>
 
 <template name="itemsSelector">
-  <div class="itemsSelector">
-    <div class="itemButton current {{#if showAll}}itemButtonDisabled{{else}}itemButtonEnabled{{/if}}">
+  <div class="topBar">
+    <div class="current itemButton {{#if showAll}}itemButtonDisabled{{else}}itemButtonEnabled{{/if}}">
       Current
     </div>
-    <div class="itemButton all {{#if showAll}}itemButtonEnabled{{else}}itemButtonDisabled{{/if}}">
+    <div class="all itemButton {{#if showAll}}itemButtonEnabled{{else}}itemButtonDisabled{{/if}}">
       All
     </div>
   </div>
@@ -45,10 +78,10 @@
     <div class="card">
       <div class="headline">{{title}}</div>
       <div class="text">{{body}}</div>
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">create</i>
+      <button class="edit mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" value="{{_id}}">
+        <i class="material-icons">edit</i>
       </button>
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <button class="delete mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" value="{{_id}}">
         <i class="material-icons">delete</i>
       </button>
     </div>
@@ -60,10 +93,10 @@
     <div class="card">
       <div class="headline">{{title}}</div>
       <div class="text">{{body}}</div>
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">create</i>
+      <button class="edit mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" value="{{_id}}">
+        <i class="material-icons">edit</i>
       </button>
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <button class="delete mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" value="{{_id}}">
         <i class="material-icons">delete</i>
       </button>
     </div>
